@@ -30,5 +30,24 @@ namespace Code_Exercises
         {
             return str.ToLower().ToCharArray().GroupBy(x => x).Where(x => x.Count() > 1).Count();
         }
+        public static string[] Solution(string str)
+        {
+            var data = new List<string>();
+            for (int i = 0; i < str.Length; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    if (str.Length % 2 != 0 && i == str.Length - 1)
+                    {
+                        data.Add(str[i] + "_");
+                    }
+                    else
+                    {
+                        data.Add(str[i] + "" + str[i + 1]);
+                    }
+                }
+            }
+            return data.ToArray();
+        }
     }
 }
