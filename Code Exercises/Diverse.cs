@@ -63,6 +63,33 @@ namespace Code_Exercises
             return arrTemp[n - 1];
         }
         public static int NthSmallestLinq(int[][] arr, int n) => arr.SelectMany(x => x).OrderBy(x => x).Skip(n - 1).First();
+        public static string High(string s)
+        {
+            var alfaHigh = new List<int>();
+            int points = 1;
+            var alfa = "abcdefghijklmnopqrstuvwxyz";
+            var splittedString = s.Split(" ");
+            foreach (var c in splittedString)
+            {
+                foreach (char ch in c)
+                {
+                    points += alfa.IndexOf(ch) + 1;
+                }
+                alfaHigh.Add(points);
+                points = 0;
+            }
+            int max = alfaHigh[0];
+            int index = 0;
+            for (int i = 0; i < alfaHigh.Count; i++)
+            {
+                if (max < alfaHigh[i])
+                {
+                    max = alfaHigh[i];
+                    index = i;
+                }
+            }
+            return splittedString[index];
+        }
     }
 
 }
