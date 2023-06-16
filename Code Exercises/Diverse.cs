@@ -48,6 +48,21 @@ namespace Code_Exercises
 
             return result;
         }
+
+        public static int NthSmallest(int[][] arr, int n)
+        {
+            List<int> arrTemp = new List<int> { };
+            foreach (int[] array in arr)
+            {
+                foreach (int value in array)
+                {
+                    arrTemp.Add(value);
+                }
+            }
+            arrTemp.Sort();
+            return arrTemp[n - 1];
+        }
+        public static int NthSmallestLinq(int[][] arr, int n) => arr.SelectMany(x => x).OrderBy(x => x).Skip(n - 1).First();
     }
 
 }
