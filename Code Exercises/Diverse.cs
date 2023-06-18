@@ -90,6 +90,33 @@ namespace Code_Exercises
             }
             return splittedString[index];
         }
+        public static int[] MoveZeroes(int[] arr)
+        {
+            // TODO: Program me
+            var nulls = new List<int>();
+            var nonNulls = new List<int>();
+            var newArray = new List<int>();
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (arr[i] == 0)
+                {
+                    nulls.Add(arr[i]);
+                }
+                else
+                {
+                    nonNulls.Add(arr[i]);
+                }
+            }
+            newArray.AddRange(nonNulls);
+            newArray.AddRange(nulls);
+            return newArray.ToArray();
+        }
+        public static int[] MoveZeroesLinq(int[] arr) =>
+         arr.OrderBy(x => x == 0).ToArray();
+        //The main idea is to count all the occurring characters in a string. If you have a string
+        //like aba, then the result should be {'a': 2, 'b': 1}.
+        public static Dictionary<char, int> CountLinq(string str) =>
+            str.GroupBy(x => x).ToDictionary(c => c.Key, c => c.Count());
     }
 
 }
