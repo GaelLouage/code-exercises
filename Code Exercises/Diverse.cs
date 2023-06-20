@@ -214,8 +214,27 @@ namespace Code_Exercises
             return arrayDiff.ToArray();
         }
 
-        public static int[] ArrayDiff(int[] a, int[] b) =>
+        public static int[] ArrayDiffLinq(int[] a, int[] b) =>
         a.Where(x => !b.Contains(x)).ToArray();
+        /* create N×N multiplication table, of size provided in parameter.
+        For example, when given size is 3:
+        1 2 3
+        2 4 6
+        3 6 9
+        */
+        public static int[,] MultiplicationTable(int size)
+        {
+            int[,] arrMulti = new int[size, size];
+            for (int i = 0; i < arrMulti.GetLength(0); i++)
+            {
+                for (int j = 0; j < arrMulti.GetLength(1); j++)
+                {
+                    arrMulti[i, j] = (i + 1) * (j + 1);
+                }
+
+            }
+            return arrMulti;
+        }
     }
 
 }
