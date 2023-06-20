@@ -198,6 +198,24 @@ namespace Code_Exercises
             }
             return string.Join("", persons.OrderBy(x => x));
         }
+
+        public static string MeetingLinq(string s) =>
+    string.Join("", s.Split(";").Select(x => new { Name = $"({x.Split(":")[1].ToUpper()}, {x.Split(":")[0].ToUpper()})" }).OrderBy(x => x.Name).Select(x => x.Name));
+
+        public static int[] ArrayDiff(int[] a, int[] b)
+        {
+            // Your brilliant solution goes here
+            // It's possible to pass random tests in about a second ;)
+            var arrayDiff = a.ToList();
+            for (int i = 0; i < b.Length; i++)
+            {
+                arrayDiff.RemoveAll(x => x == b[i]);
+            }
+            return arrayDiff.ToArray();
+        }
+
+        public static int[] ArrayDiff(int[] a, int[] b) =>
+        a.Where(x => !b.Contains(x)).ToArray();
     }
 
 }
