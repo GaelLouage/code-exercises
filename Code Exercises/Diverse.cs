@@ -235,6 +235,52 @@ namespace Code_Exercises
             }
             return arrMulti;
         }
-    }
+        public static bool XOString(string input)
+        {
+            int o = 0;
+            int x = 0;
+            for (int i = 0; i < input.Length; i++)
+            {
+                if (input[i].ToString().ToLower() == "o")
+                {
+                    o++;
+                }
+                else if (input[i].ToString().ToLower() == "x")
+                {
+                    x++;
+                }
+            }
+            return o == x;
+        }
+        public static bool XODictionary(string input)
+        {
+            if (string.IsNullOrEmpty(input)) return true;
+            var dictionaryXO = new Dictionary<char, int>();
+            foreach (var c in input)
+            {
+                var cToLower = Convert.ToChar(c.ToString().ToLower());
+                if (dictionaryXO.ContainsKey(c))
+                {
+                    dictionaryXO[cToLower]++;
+                }
+                else
+                {
+                    dictionaryXO.Add(cToLower, 1);
+                }
+            }
+            return dictionaryXO.ContainsKey('o') && dictionaryXO.ContainsKey('x') && dictionaryXO['o'] == dictionaryXO['x'];//Code it!
+        }
+        /*Check to see if a string has the same amount of 'x's and 'o's. The method must return a boolean and be case insensitive. The string can contain any char.
 
+        Examples input/output:
+        
+        XO("ooxx") => true
+        XO("xooxx") => false
+        XO("ooxXm") => true
+        XO("zpzpzpp") => true // when no 'x' and 'o' is present should return true
+        XO("zzoo") => false*/
+        public static bool XOLinq(string input) =>
+                input.Count(x => x.ToString().ToLower() == "x") == input.Count(x => x.ToString().ToLower() == "o");
+    }
 }
+
