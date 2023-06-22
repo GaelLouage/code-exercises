@@ -281,6 +281,27 @@ namespace Code_Exercises
         XO("zzoo") => false*/
         public static bool XOLinq(string input) =>
                 input.Count(x => x.ToString().ToLower() == "x") == input.Count(x => x.ToString().ToLower() == "o");
+        public static int SquareSumLinq(int[] numbers) =>
+                numbers.Sum(x => x * x);
+        public static int SquareSum(int[] numbers)
+        {
+            var sum = 0;
+            foreach (var num in numbers)
+            {
+                sum += num * num; // Math.Pow(num,2) - math lib; 
+            }
+            return sum;
+        }
+        public static int StringToNumber(String str)
+        {
+            if (int.TryParse(str, out int val))
+            {
+                return val;
+            }
+            return 0;
+        }
+        public static int StringToNumberLinq(string str) =>
+             str.All(x => char.IsNumber(x) || (char.IsNumber(x) || x == '-')) ? int.Parse(str) : 0;
     }
 }
 
