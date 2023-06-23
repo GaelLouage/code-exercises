@@ -302,6 +302,37 @@ namespace Code_Exercises
         }
         public static int StringToNumberLinq(string str) =>
              str.All(x => char.IsNumber(x) || (char.IsNumber(x) || x == '-')) ? int.Parse(str) : 0;
+        /*There is a bus moving in the city which takes and drops some people at each bus stop.
+        
+        You are provided with a list (or array) of integer pairs. Elements of each pair represent the number of people that get on the bus (the first item) and the number of people that get off the bus (the second item) at a bus stop.
+        
+        Your task is to return the number of people who are still on the bus after the last bus stop (after the last array). Even though it is the last bus stop, the bus might not be empty and some people might still be inside the bus, they are probably sleeping there :D
+        
+        Take a look on the test cases.
+        
+        Please keep in mind that the test cases ensure that the number of people in the bus is always >= 0. So the returned integer can't be negative.
+        
+        The second value in the first pair in the array is 0, since the bus is empty in the first bus stop.
+        
+        */
+        public static int Number(List<int[]> peopleListInOut)
+        {
+            var onTheBus = 0;
+            for (int i = 0; i < peopleListInOut.Count; i++)
+            {
+
+                for (int j = 0; j < peopleListInOut[i].Length - 1; j++)
+                {
+                    onTheBus += peopleListInOut[i][j] - peopleListInOut[i][j + 1];
+                }
+
+            }
+            return onTheBus;
+        }
+        public static int NumberLinq(List<int[]> peopleListInOut) =>
+              peopleListInOut.SelectMany(x => x).Where((c, i) => i % 2 == 0).Sum() -
+              peopleListInOut.SelectMany(x => x).Where((c, i) => i % 2 != 0).Sum();
+        public static int NumberLinqShort(List<int[]> peopleListInOut) => peopleListInOut.Sum(x => x[0] - x[1]);
     }
 }
 
