@@ -333,6 +333,9 @@ namespace Code_Exercises
               peopleListInOut.SelectMany(x => x).Where((c, i) => i % 2 == 0).Sum() -
               peopleListInOut.SelectMany(x => x).Where((c, i) => i % 2 != 0).Sum();
         public static int NumberLinqShort(List<int[]> peopleListInOut) => peopleListInOut.Sum(x => x[0] - x[1]);
+        public static string AbbrevName(string name) =>
+                 $"{name[0]}.{name[name.IndexOf(" ") + 1]}".ToUpper();
+
     }
 }
 
