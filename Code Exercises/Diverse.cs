@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Code_Exercises
 {
@@ -335,7 +336,9 @@ namespace Code_Exercises
         public static int NumberLinqShort(List<int[]> peopleListInOut) => peopleListInOut.Sum(x => x[0] - x[1]);
         public static string AbbrevName(string name) =>
                  $"{name[0]}.{name[name.IndexOf(" ") + 1]}".ToUpper();
-
+        //create a function that takes a list of non-negative integers and strings and returns a new list with the strings filtered out.
+        public static IEnumerable<int> GetIntegersFromList(List<object> listOfItems) 
+            => listOfItems.OfType<int>();
     }
 }
 
