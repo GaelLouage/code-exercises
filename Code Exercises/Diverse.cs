@@ -293,7 +293,7 @@ namespace Code_Exercises
             }
             return sum;
         }
-        public static int StringToNumber(String str)
+        public static int StringToNumber(string str)
         {
             if (int.TryParse(str, out int val))
             {
@@ -339,6 +339,11 @@ namespace Code_Exercises
         //create a function that takes a list of non-negative integers and strings and returns a new list with the strings filtered out.
         public static IEnumerable<int> GetIntegersFromList(List<object> listOfItems) 
             => listOfItems.OfType<int>();
+
+        /*return the sum of all of the positives ones.
+        Example[1, -4, 7, 12] => 1 + 7 + 12 = 20 */
+        public static int PositiveSum(int[] arr) =>
+            arr.Where(x => x > 0).Sum();
     }
 }
 
