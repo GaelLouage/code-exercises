@@ -54,5 +54,13 @@ namespace Code_Exercises
         2000 --> 20*/
         public static int СenturyFromYear(int year) =>
                 year % 100 == 0 ? year / 100 : year / 100 + 1;
+
+        public static string CreatePhoneNumber(int[] numbers)
+        {
+            var numbersToString = string.Concat(Array.ConvertAll(numbers, x => x.ToString()));
+            return $"({numbersToString.Substring(0, 3)}) {numbersToString.Substring(3, 3)}-{numbersToString.Substring(6, 4)}";
+        }
+        public static string CreatePhoneNumberStringFormat(int[] numbers) =>
+              long.Parse(string.Concat(numbers)).ToString("(000) 000-0000");
     }
 }
