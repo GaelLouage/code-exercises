@@ -344,6 +344,35 @@ namespace Code_Exercises
         Example[1, -4, 7, 12] => 1 + 7 + 12 = 20 */
         public static int PositiveSum(int[] arr) =>
             arr.Where(x => x > 0).Sum();
+
+
+        /*make a function that can take any non-negative integer as an argument and return it with its digits in descending order. Essentially, rearrange the digits to create the highest possible number.
+        
+        Examples:
+        Input: 42145 Output: 54421
+        
+        Input: 145263 Output: 654321
+        
+        Input: 123456789 Output: 987654321*/
+        public static int DescendingOrder(int num) =>
+             int.Parse(string.Concat(num.ToString().OrderByDescending(x => x)));
+
+        /*Given a year, return the century it is in.
+       Examples
+       1705 --> 18
+       1900 --> 19
+       1601 --> 17
+       2000 --> 20*/
+        public static int СenturyFromYear(int year) =>
+                year % 100 == 0 ? year / 100 : year / 100 + 1;
+
+        public static string CreatePhoneNumber(int[] numbers)
+        {
+            var numbersToString = string.Concat(Array.ConvertAll(numbers, x => x.ToString()));
+            return $"({numbersToString.Substring(0, 3)}) {numbersToString.Substring(3, 3)}-{numbersToString.Substring(6, 4)}";
+        }
+        public static string CreatePhoneNumberStringFormat(int[] numbers) =>
+              long.Parse(string.Concat(numbers)).ToString("(000) 000-0000");
     }
 }
 
