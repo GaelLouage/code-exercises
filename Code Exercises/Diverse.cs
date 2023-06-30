@@ -373,6 +373,10 @@ namespace Code_Exercises
         }
         public static string CreatePhoneNumberStringFormat(int[] numbers) =>
               long.Parse(string.Concat(numbers)).ToString("(000) 000-0000");
+
+        // return negative number
+        public static int MakeNegative(int number) =>
+                    number < 0 ? number : number * -1;
     }
 }
 
