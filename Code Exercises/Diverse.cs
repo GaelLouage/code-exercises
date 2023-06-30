@@ -377,6 +377,22 @@ namespace Code_Exercises
         // return negative number
         public static int MakeNegative(int number) =>
                     number < 0 ? number : number * -1;
+
+        public static string DisemvowelLinq(string str) =>
+            string.Concat(str.Where(x => !"aeiouAEIOU".ToArray().Contains(x)));
+        public static string Disemvowel(string str)
+        {
+            var vowels = "aeiouAEIOU".ToArray();
+            var sb = new StringBuilder();
+            foreach (var c in str)
+            {
+                if (!vowels.Contains(c))
+                {
+                    sb.Append(c);
+                }
+            }
+            return sb.ToString();
+        }
     }
 }
 
