@@ -12,6 +12,7 @@ namespace Code_Exercises
         Expected Output:
         The numbers which produce the remainder 0 after divided by 2 are :
         0 2 4 6 8*/
-
+        public static IEnumerable<int> GetNumbersWithRemainder0(IEnumerable<int> numbers) =>
+        numbers.Where(x => x % 2 == 0);
     }
 }
