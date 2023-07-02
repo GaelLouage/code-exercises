@@ -366,11 +366,11 @@ namespace Code_Exercises
         public static int СenturyFromYear(int year) =>
                 year % 100 == 0 ? year / 100 : year / 100 + 1;
 
-        public static string CreatePhoneNumber(int[] numbers)
-        {
-            var numbersToString = string.Concat(Array.ConvertAll(numbers, x => x.ToString()));
-            return $"({numbersToString.Substring(0, 3)}) {numbersToString.Substring(3, 3)}-{numbersToString.Substring(6, 4)}";
-        }
+        //public static string CreatePhoneNumber(int[] numbers)
+        //{
+        //    var numbersToString = string.Concat(Array.ConvertAll(numbers, x => x.ToString()));
+        //    return $"({numbersToString.Substring(0, 3)}) {numbersToString.Substring(3, 3)}-{numbersToString.Substring(6, 4)}";
+        //}
         public static string CreatePhoneNumberStringFormat(int[] numbers) =>
               long.Parse(string.Concat(numbers)).ToString("(000) 000-0000");
 
@@ -399,6 +399,16 @@ namespace Code_Exercises
          public static int Paperwork(int n, int m) =>
             n < 0 || m < 0 ? 0 : n * m;
 
+
+        /*Task:
+        Given a list of integers, determine whether the sum of its elements is odd or even.
+
+        Give your answer as a string matching "odd" or "even".
+
+        If the input array is empty consider it as: [0] (array with a zero).*/
+        public static string OddOrEven(int[] array) =>
+             array.Sum() % 2 == 0 ? "even" : "odd";
     }
+   
 }
 
