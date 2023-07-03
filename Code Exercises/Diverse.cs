@@ -408,6 +408,27 @@ namespace Code_Exercises
         If the input array is empty consider it as: [0] (array with a zero).*/
         public static string OddOrEven(int[] array) =>
              array.Sum() % 2 == 0 ? "even" : "odd";
+
+        /*An isogram is a word that has no repeating letters, consecutive or non-consecutive. Implement a function that determines whether a string that contains only letters is an isogram. Assume the empty string is an isogram. Ignore letter case.
+        Example: (Input --> Output)
+        "Dermatoglyphics" --> true "aba" --> false "moOse" --> false (ignore letter case)*/
+        public static bool IsIsogramLinq(string str) => str.ToLower().Distinct().Count() == str.Length;
+        public static bool IsIsogram(string str)
+        {
+            var letters = new Dictionary<int, int>();
+            foreach (var c in str.ToLower())
+            {
+                if (letters.ContainsKey(c))
+                {
+                    return false;
+                }
+                else
+                {
+                    letters.Add(c, 1);
+                }
+            }
+            return true;
+        }
     }
    
 }
