@@ -19,5 +19,10 @@ namespace Code_Exercises
         12   */
         public static int ComputeSumWithCondition(int one, int two) =>
                  one == two ? (one + two) * 3 : one + two;
+
+        /*Write a C# Sharp program to get the absolute difference between n and 51. If n is broader than 51 return triple the absolute difference.*/
+
+        public static int GetAbsoluteDifference(int n) =>
+            n > 51 ? (n - 51) * 3 : 51 - n;
     }
 }
