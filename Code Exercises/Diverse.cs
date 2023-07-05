@@ -438,7 +438,40 @@ namespace Code_Exercises
         0 => [0]*/
         public static long[] Digitize(long n) =>
         n.ToString().Reverse().Select(x => (long)char.GetNumericValue(x)).ToArray();
+
+        /*This time no story, no theory. The examples below show you how to write function accum:
+        Examples:
+        accum("abcd") -> "A-Bb-Ccc-Dddd"
+        accum("RqaEzty") -> "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
+        accum("cwAt") -> "C-Ww-Aaa-Tttt"
+        The parameter of accum is a string which includes only letters from a..z and A..Z.*/
+        public static string Accum(string s)
+        {
+            var stringLengt = 0;
+            var sb = new StringBuilder();
+            foreach (var c in s)
+            {
+                for (int i = 0; i <= stringLengt; i++)
+                {
+                    if (i == 0)
+                    {
+                        sb.Append(c.ToString().ToUpper());
+                    }
+                    else
+                    {
+                        sb.Append(c.ToString().ToLower());
+                    }
+                    if (i == stringLengt && stringLengt < s.Length - 1)
+                    {
+                        sb.Append("-");
+                    }
+                }
+                stringLengt++;
+            }
+
+            return sb.ToString();
+        }
     }
-   
+
 }
 
