@@ -471,6 +471,9 @@ namespace Code_Exercises
 
             return sb.ToString();
         }
+        public static string AccumLinq(string s) =>
+             string.Join("-", s.Select((c, i) => char.ToUpper(c) + new string(char.ToLower(c), i)));
+
     }
 
 }

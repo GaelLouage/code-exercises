@@ -14,5 +14,9 @@ namespace Code_Exercises
         0 2 4 6 8*/
         public static IEnumerable<int> GetNumbersWithRemainder0(IEnumerable<int> numbers) =>
         numbers.Where(x => x % 2 == 0);
+
+        // find numbers in range
+        public static List<int> NumbersInRange(List<int> numbers, int rangeStart, int rangeEnd) =>
+              numbers.Where(x => x >= rangeStart && x <= rangeEnd).ToList();
     }
 }
