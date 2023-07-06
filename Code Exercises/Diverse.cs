@@ -473,7 +473,17 @@ namespace Code_Exercises
         }
         public static string AccumLinq(string s) =>
              string.Join("-", s.Select((c, i) => char.ToUpper(c) + new string(char.ToLower(c), i)));
+        /*Complete the solution so that it returns true if the first argument(string) passed in ends with the 2nd argument (also a string).
+        
+        Examples:
+        
+        solution('abc', 'bc') // returns true
+        solution('abc', 'd') // returns false*/
+        public static bool StringEndsWith(string str, string ending) =>
+              str.Length >= ending.Length && str.Substring(str.Length - ending.Length, ending.Length) == ending;
 
+        public static bool StringEndsWithLinq(string str, string ending) =>
+                str.EndsWith(ending);
     }
 
 }
