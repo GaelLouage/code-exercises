@@ -28,5 +28,7 @@ namespace Code_Exercises
 
         public static int CountDuplicatesLinq(int[] array) =>
          array.GroupBy(x => x).Count(z => z.Count() > 1);
+        public static IEnumerable<T> GetAllUniqueValues<T>(List<T> values) =>
+                values.GroupBy(x => x).Where(x => x.Count() <= 1).Select(x => x.Key);
     }
 }
