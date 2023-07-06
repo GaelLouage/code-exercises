@@ -28,5 +28,9 @@ namespace Code_Exercises
                 Console.WriteLine(item);
             }
         }
+
+        /*Write a C# program to sort the elements of a given stack in descending order.*/
+        public static Stack<T> OrderedStack<T>(Stack<T> values) => new Stack<T>(values.ToList().OrderByDescending(x => x));
+
     }
 }
