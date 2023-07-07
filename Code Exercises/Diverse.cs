@@ -337,7 +337,7 @@ namespace Code_Exercises
         public static string AbbrevName(string name) =>
                  $"{name[0]}.{name[name.IndexOf(" ") + 1]}".ToUpper();
         //create a function that takes a list of non-negative integers and strings and returns a new list with the strings filtered out.
-        public static IEnumerable<int> GetIntegersFromList(List<object> listOfItems) 
+        public static IEnumerable<int> GetIntegersFromList(List<object> listOfItems)
             => listOfItems.OfType<int>();
 
         /*return the sum of all of the positives ones.
@@ -396,8 +396,8 @@ namespace Code_Exercises
 
         /*Your classmates asked you to copy some paperwork for them. You know that there are 'n' classmates and the paperwork has 'm' pages.
         Your task is to calculate how many blank pages do you need. If n < 0 or m < 0 return 0.*/
-         public static int Paperwork(int n, int m) =>
-            n < 0 || m < 0 ? 0 : n * m;
+        public static int Paperwork(int n, int m) =>
+           n < 0 || m < 0 ? 0 : n * m;
 
 
         /*Task:
@@ -484,6 +484,53 @@ namespace Code_Exercises
 
         public static bool StringEndsWithLinq(string str, string ending) =>
                 str.EndsWith(ending);
+
+        /*Complete the method which returns the number which is most frequent in the given input array. If there is a tie for most frequent number, return the largest number among them.
+
+        Note: no empty arrays will be given.
+        
+        Examples
+        [12, 10, 8, 12, 7, 6, 4, 10, 12]              -->  12
+        [12, 10, 8, 12, 7, 6, 4, 10, 12, 10]          -->  12
+        [12, 10, 8, 8, 3, 3, 3, 3, 2, 4, 10, 12, 10]  -->   3*/
+        public static int HighestRank(int[] arr)
+        {
+
+            var highestCount = new List<int>();
+            var maxValue = 0;
+
+            var dictionaryArr = new Dictionary<int, int>();
+            foreach (var num in arr)
+            {
+                if (dictionaryArr.ContainsKey(num))
+                {
+                    dictionaryArr[num]++;
+                    if (maxValue < dictionaryArr[num])
+                    {
+                        maxValue = dictionaryArr[num];
+                    }
+                }
+                else
+                {
+                    dictionaryArr.Add(num, 1);
+                }
+            }
+
+            foreach (var item in dictionaryArr)
+            {
+                if (maxValue == item.Value)
+                {
+                    highestCount.Add(item.Key);
+                }
+            }
+            return highestCount.Count == 0 ? dictionaryArr.ToList().Max(x => x.Key) : highestCount.Max();
+        }
+        public static int HighestRankLinq(int[] arr) =>
+                          arr.GroupBy(x => x)
+                         .OrderByDescending(x => x.Count())
+                         .ThenByDescending(x => x.Key)
+                         .Select(x => x.Key)
+                         .First();
     }
 
 }
