@@ -541,6 +541,28 @@ namespace Code_Exercises
         1, 1 --> "10" (1 + 1 = 2 in decimal or 10 in binary)
         5, 9 --> "1110" (5 + 9 = 14 in decimal or 1110 in binary)*/
         public static string AddBinary(int a, int b) => Convert.ToString(a + b, 2);
+
+        /*Calc bmi*/
+        public static string Bmi(double weight, double height)
+        {
+            var bmi = weight / (height * height);
+            if (bmi <= 18.5)
+            {
+                return "Underweight";
+            }
+            else if (bmi <= 25.0)
+            {
+                return "Normal";
+            }
+            else if (bmi <= 30.0)
+            {
+                return "Overweight";
+            }
+            else
+            {
+                return "Obese";
+            }
+        }
     }
 
 }
