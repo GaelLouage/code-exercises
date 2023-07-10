@@ -541,7 +541,6 @@ namespace Code_Exercises
         1, 1 --> "10" (1 + 1 = 2 in decimal or 10 in binary)
         5, 9 --> "1110" (5 + 9 = 14 in decimal or 1110 in binary)*/
         public static string AddBinary(int a, int b) => Convert.ToString(a + b, 2);
-
         /*Calc bmi*/
         public static string Bmi(double weight, double height)
         {
@@ -563,7 +562,47 @@ namespace Code_Exercises
                 return "Obese";
             }
         }
-    }
 
+        /*Given an array of integers, find the one that appears an odd number of times.
+
+        There will always be only one integer that appears an odd number of times.
+        
+        Examples
+        [7] should return 7, because it occurs 1 time (which is odd).
+        [0] should return 0, because it occurs 1 time (which is odd).
+        [1,1,2] should return 2, because it occurs 1 time (which is odd).
+        [0,1,0,1,0] should return 0, because it occurs 3 times (which is odd).
+        [1,2,2,3,3,3,4,3,3,3,2,2,1] should return 4, because it appears 1 time (which is odd).
+        
+        */
+        public static int FindItLinq(int[] seq)
+        {
+            return seq.GroupBy(x => x).First(k => k.Count() % 2 != 0).Key;
+        }
+        public static int FindIt(int[] seq)
+        {
+            var numsD = new Dictionary<int, int>();
+
+            foreach (var num in seq)
+            {
+                if (numsD.ContainsKey(num))
+                {
+                    numsD[num]++;
+                }
+                else
+                {
+                    numsD.Add(num, 1);
+                }
+            }
+            foreach (var k in numsD)
+            {
+                if (k.Value % 2 != 0)
+                {
+                    return k.Key;
+                }
+            }
+            return -1;
+        }
+    }
 }
 
