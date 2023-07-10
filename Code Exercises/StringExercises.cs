@@ -33,5 +33,21 @@ namespace Code_Exercises
         {
             return String.Compare(one, two) == 0;
         }
+        /*Write a program in C# Sharp to count the number of alphabets, digits and special characters in a string.
+        Test Data :
+        Input the string : Welcome to w3resource.com
+        Expected Output :
+        
+        Number of Alphabets in the string is : 21 
+        Number of Digits in the string is : 1 
+        */
+        public static StringBuilder GetAlfaSpecCharsAndDigits(string text)
+        {
+            var sb = new StringBuilder();
+            sb.AppendLine($"Number of Alphabets in the string is : {text.Count(char.IsLetter)}");
+            sb.AppendLine($"Number of Digits in the string is : {text.Count(char.IsNumber)}");
+            sb.AppendLine($"Number of Alphabets in the string is : {text.Count(x => !char.IsLetterOrDigit(x))}");
+            return sb;
+        }
     }
 }

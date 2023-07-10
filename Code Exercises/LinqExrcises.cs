@@ -29,5 +29,7 @@ namespace Code_Exercises
         */
         public static IEnumerable SquareNumbers(int[] array) =>
              array.Select(x => new { Number = x, SqrNo = Math.Pow(x, 2) }).ToArray();
+
+
     }
 }
