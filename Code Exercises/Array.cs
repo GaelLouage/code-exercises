@@ -30,5 +30,21 @@ namespace Code_Exercises
          array.GroupBy(x => x).Count(z => z.Count() > 1);
         public static IEnumerable<T> GetAllUniqueValues<T>(List<T> values) =>
                 values.GroupBy(x => x).Where(x => x.Count() <= 1).Select(x => x.Key);
+        /*"How can I merge two lists together and sort the resulting list in C#?*/
+        public static IEnumerable<T> MergeTwoList<T>(List<T> listOne, List<T> listTwo)
+        {
+            listOne.AddRange(listTwo);
+            return listOne.OrderBy(x => x);
+        }
+        /*using func to test*/
+        public static Func<IEnumerable<T>> MergeTwoListFunc<T>(List<T> listOne, List<T> listTwo)
+        {
+
+            return () =>
+            {
+                listOne.AddRange(listTwo);
+                return listOne.OrderBy(x => x);
+            };
+        }
     }
 }
