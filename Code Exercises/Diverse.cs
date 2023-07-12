@@ -607,6 +607,28 @@ namespace Code_Exercises
         /*Consider an array/list of sheep where some sheep may be missing from their place. We need a function that counts the number of sheep present in the array (true means present).*/
         public static int CountSheeps(bool[] sheeps) =>
                                 sheeps.Count(x => x);
+
+        /*In this little assignment you are given a string of space separated numbers, and have to return the highest and lowest number.
+        
+        Examples
+        Kata.HighAndLow("1 2 3 4 5");  // return "5 1"
+        Kata.HighAndLow("1 2 -3 4 5"); // return "5 -3"
+        Kata.HighAndLow("1 9 3 4 -5"); // return "9 -5"*/
+        public static string HighAndLow(string numbers)
+        {
+            var min = 9999999999;
+            var max = -9999999999;
+            foreach (var num in numbers.Split(' '))
+            {
+                var n = Convert.ToInt32(num);
+                if (min > n) min = (int)n;
+                if (max < n) max = (int)n;
+            }
+            return $"{max} {min}";
+        }
+        public static string HighAndLowLinq(string numbers) =>
+            $"{numbers.Split(' ').Max(int.Parse)} {numbers.Split(' ').Min(int.Parse)}";
+
     }
 }
 
