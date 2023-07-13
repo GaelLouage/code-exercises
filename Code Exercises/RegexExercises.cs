@@ -46,6 +46,17 @@ namespace Code_Exercises
         $ asserts the end of the string.*/
         public static bool IsMatchingPhoneNumer(string phoneNumber) => Regex.IsMatch(phoneNumber, @"^[1-9][0-9]{9}$");
 
+        /*Write a regular expression pattern in C# that matches strings containing only lowercase letters and numbers (0-9), with a length between 3 and 6 characters.*/
+        /*The regular expression pattern ^[a-z0-9]{3,6}$ matches strings that:
+
+        Begin with the start of the line (^).
+        Consist of lowercase letters and numbers (0-9) only ([a-z0-9]).
+        Have a length between 3 and 6 characters ({3,6}).
+        End with the end of the line ($).*/
+        public static bool CheckIfStringLowerCaseAndNumberWithRegex(string input)
+        {
+            return Regex.IsMatch(input, "^[a-z0-9]{3,6}$");
+        }
 
     }
 }
