@@ -640,6 +640,28 @@ namespace Code_Exercises
         The input string can be of arbitrary length - in particular, it may be empty. All input is guaranteed to be valid, i.e. each input string will only ever consist of 'G', 'C', 'A' and/or 'T'.*/
         public string dnaToRna(string dna) =>
                  dna.Replace("T", "U");
+
+        public static bool IsPrime(int n)
+        {
+            if (n <= 1) return false;
+            if (n == 2) return true;
+            if (n % 2 == 0) return false;
+
+            var boundary = (int)Math.Floor(Math.Sqrt(n));
+
+            for (int i = 3; i <= boundary; i += 2)
+                if (n % i == 0)
+                    return false;
+
+            return true;
+        }
+        public static string ToJadenCase(this string phrase) =>
+                string.Join(" ", phrase.Split(' ').Select(w =>
+                {
+                    if (string.IsNullOrEmpty(w))
+                        return w;
+                    return char.ToUpper(w[0]) + w.Substring(1);
+                }));
     }
 }
 
