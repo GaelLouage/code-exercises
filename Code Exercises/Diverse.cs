@@ -662,6 +662,12 @@ namespace Code_Exercises
                         return w;
                     return char.ToUpper(w[0]) + w.Substring(1);
                 }));
+
+
+        public static string EvenOrOdd(int number)
+        {
+            return number % 2 == 0 ? "Even" : "Odd";
+        }
     }
 }
 

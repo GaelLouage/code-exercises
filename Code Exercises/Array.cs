@@ -46,5 +46,29 @@ namespace Code_Exercises
                 return listOne.OrderBy(x => x);
             };
         }
+        /*. Write a C# Sharp program to count the frequency of each element in an array.*/
+        public static string GetFrenquencyOfElements(int[] arr)
+        {
+            var elementDictionary = new Dictionary<int, int>();
+            foreach (var num in arr)
+            {
+                if (elementDictionary.ContainsKey(num))
+                {
+                    elementDictionary[num]++;
+
+                }
+                else
+                {
+                    elementDictionary.Add(num, 1);
+                }
+            }
+
+            return string.Join("\n", elementDictionary
+                               .Select(x => x.Value > 1 ? $"{x.Key} Occurs : {x.Value} times" : $"{x.Key} Occurs : {x.Value} time"));
+        }
+        public static string GetFrequencyOfElementsLinq(int[] arr) =>
+                            string.Join("\n", arr
+                                                    .GroupBy(x => x)
+                                                    .Select(x => new Func<string>(() => x.Count() > 1 ? $"{x.Key} occurs {x.Count()} times" : $"{x.Key} occurs {x.Count()} time")()));
     }
 }
