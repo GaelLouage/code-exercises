@@ -34,5 +34,19 @@ namespace Code_Exercises
         20, 25*/
         public static bool Is30(int one, int two)
                   => one + two == 30 || one == 30 || two == 30;
+
+        /* Write a C# Sharp program to exchange the first and last characters in a given string and return the new string.
+
+        Sample Input:
+        "abcd"
+        "a"
+        "xy"
+        Expected Output:
+        
+        dbca
+        a
+        yx*/
+        public static string ChangeFirstAndLastLetter(string text) =>
+         text.Length <= 1 ? text : $"{text[text.Length - 1]}{text.Substring(1, text.Length - 2)}{text[0]}";
     }
 }
