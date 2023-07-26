@@ -676,6 +676,27 @@ namespace Code_Exercises
             // Smash words
             return string.Join(" ", words);
         }
+        /*Given an array of integers your solution should find the smallest integer.
+
+        For example:
+        
+        Given [34, 15, 88, 2] your solution will return 2
+        Given [34, -345, -1, 100] your solution will return -345*/
+        public static int FindSmallestInt(int[] args)
+        {
+
+            if (args.Length <= 0) return 0;
+            int min = args[0];
+            foreach (var num in args)
+            {
+                if (min > num)
+                {
+                    min = num;
+                }
+            }
+            return min;
+        }
+        public static int FindSmallestIntLinq(int[] args) => args.Min();
     }
 }
 

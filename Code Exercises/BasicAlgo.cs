@@ -48,5 +48,17 @@ namespace Code_Exercises
         yx*/
         public static string ChangeFirstAndLastLetter(string text) =>
          text.Length <= 1 ? text : $"{text[text.Length - 1]}{text.Substring(1, text.Length - 2)}{text[0]}";
+        public static string ChangeFirstAndLastLetterSb(string text)
+        {
+            if (text.Length <= 1) return text;
+            var st = new StringBuilder();
+            st.Append(text[text.Length - 1]);
+            for (int i = 1; i < text.Length - 2; i++)
+            {
+                st.Append(text[i]);
+            }
+            st.Append(text[0]);
+            return st.ToString();
+        }
     }
 }
