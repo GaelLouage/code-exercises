@@ -71,7 +71,7 @@ namespace Code_Exercises
                                                     .GroupBy(x => x)
                                                     .Select(x => new Func<string>(() => x.Count() > 1 ? $"{x.Key} occurs {x.Count()} times" : $"{x.Key} occurs {x.Count()} time")()));
         /*Write a C# Sharp program to find the maximum and minimum elements in an array.*/
-        public static (int min, int max) GetMinMaxOfArrayLinq(int[] array)
+        public static (int min, int max) GetMinMaxOfArray(int[] array)
         {
             if (array.Length < 1)
             {
