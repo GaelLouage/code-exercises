@@ -33,5 +33,19 @@ namespace Code_Exercises
         public static Stack<T> OrderedByDescendingStack<T>(Stack<T> values) => new Stack<T>(values.ToList().OrderByDescending(x => x));
 
         public static Stack<T> OrderedStack<T>(Stack<T> values) => new Stack<T>(values.ToList().OrderBy(x => x));
+
+        public static int FindMinimumInStack(Stack<int> myStack)
+        {
+            //// Initialize min with the top element of the stack
+            int min = myStack.Peek();
+            foreach (var num in myStack)
+            {
+                if (min > num)
+                {
+                    min = num;
+                }
+            }
+            return min;
+        }
     }
 }

@@ -697,6 +697,23 @@ namespace Code_Exercises
             return min;
         }
         public static int FindSmallestIntLinq(int[] args) => args.Min();
+
+
+        public static int GetVowelCount(string str)
+        {
+            var vowels = "aeiou";
+            var count = 0;
+            foreach (var c in str)
+            {
+                if (vowels.Contains(c))
+                {
+                    count++;
+                }
+            }
+            return count;
+        }
+        public static int GetVowelCountLinq(string str) =>
+                 str.ToLower().Count(i => "aeiou".Contains(i));
     }
 }
 
