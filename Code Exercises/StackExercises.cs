@@ -33,7 +33,7 @@ namespace Code_Exercises
         public static Stack<T> OrderedByDescendingStack<T>(Stack<T> values) => new Stack<T>(values.ToList().OrderByDescending(x => x));
 
         public static Stack<T> OrderedStack<T>(Stack<T> values) => new Stack<T>(values.ToList().OrderBy(x => x));
-
+        //Write a C# program to find the minimum element in a stack.
         public static int FindMinimumInStack(Stack<int> myStack)
         {
             //// Initialize min with the top element of the stack
@@ -47,5 +47,7 @@ namespace Code_Exercises
             }
             return min;
         }
+        public static int FindMinimumInStackLinq(Stack<int> myStack) =>
+        myStack.OrderBy(x => x).FirstOrDefault();
     }
 }
