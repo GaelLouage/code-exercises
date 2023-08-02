@@ -49,5 +49,14 @@ namespace Code_Exercises
             sb.AppendLine($"Number of Alphabets in the string is : {text.Count(x => !char.IsLetterOrDigit(x))}");
             return sb;
         }
+        /*Write a C# Sharp program to count the number of vowels or consonants in a string.*/
+        public static StringBuilder GetNumberOfConsonantsAndVowels(string text)
+        {
+            var sb = new StringBuilder();
+            sb.Append($"The total number of vowel in the string is: {text.Count(x => "aeiouAEIOU".Contains(x))}");
+            sb.AppendLine();
+            sb.Append($"The total number of consonant in the string is: {text.Count(x => char.IsLetter(x) && !"aeiouAEIOU".Contains(x))}");
+            return sb;
+        }
     }
 }
