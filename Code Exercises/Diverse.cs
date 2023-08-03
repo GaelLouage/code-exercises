@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Runtime.InteropServices.JavaScript.JSType;
@@ -733,6 +734,36 @@ namespace Code_Exercises
         }
         public static int DivisbleBy3And5Linq(int value) =>
                 Enumerable.Range(0, value).Where(i => i % 3 == 0 || i % 5 == 0).Sum();
+        /*Given an array of integers of any length, return an array that has 1 added to the value represented by the array.
+        
+        the array can't be empty
+        only non-negative, single digit integers are allowed
+        Return nil (or your language's equivalent) for invalid inputs.
+        
+        Examples
+        Valid arrays
+        
+        [4, 3, 2, 5] would return [4, 3, 2, 6]
+        [1, 2, 3, 9] would return [1, 2, 4, 0]
+        [9, 9, 9, 9] would return [1, 0, 0, 0, 0]
+        [0, 1, 3, 7] would return [0, 1, 3, 8]
+        
+        Invalid arrays
+        
+        [1, -9] is invalid because -9 is not a non-negative integer
+        
+        [1, 2, 33] is invalid because 33 is not a single-digit intege*/
+        public static int[] UpArray(int[] num)
+        {
+            if (num.Length <= 0 || num.Any(x => x > 9 || x < 0)) return null;
+            var numberToBigInteger = (BigInteger.Parse(string.Join("", num)) + 1).ToString();
+            var numbersIntoArray = numberToBigInteger.Select(x => (int)char.GetNumericValue(x)).ToList();
+            if (num[0] == 0)
+            {
+                numbersIntoArray.Insert(0, 0);
+            }
+            return numbersIntoArray.ToArray();
+        }
     }
 }
 
