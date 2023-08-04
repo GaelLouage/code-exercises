@@ -29,7 +29,10 @@ namespace Code_Exercises
         */
         public static IEnumerable SquareNumbers(int[] array) =>
              array.Select(x => new { Number = x, SqrNo = Math.Pow(x, 2) }).ToArray();
-
-
+        //Write a program in C# Sharp to display the characters and frequency of each character in a given string.
+        public static string GetFrequencyOfCharsInString(string text)
+        {
+            return string.Join("\n", text.GroupBy(x => x).Select(x => new { character = x.Key, count = x.Count() }));
+        }
     }
 }
