@@ -15,7 +15,6 @@ namespace Code_Exercises.LibraryExercises.Data
         {
             _library = library;
         }
-
         public (StringBuilder sb, Func<string> fs) CallLibrary()
         {
             var sb = new StringBuilder();

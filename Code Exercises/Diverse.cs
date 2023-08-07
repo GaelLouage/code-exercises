@@ -764,6 +764,128 @@ namespace Code_Exercises
             }
             return numbersIntoArray.ToArray();
         }
+
+        public static void FizzBuzz()
+        {
+            for (int i = 1; i <= 100; i++)
+            {
+                if (i % 3 == 0 && i % 5 == 0)
+                {
+                    Console.WriteLine("FizzBuzz");
+                }
+                else if (i % 3 == 0)
+                {
+                    Console.WriteLine("Fizz");
+                }
+                else if (i % 5 == 0)
+                {
+                    Console.WriteLine("Buzz");
+                }
+                else
+                {
+                    Console.WriteLine(i);
+                }
+            }
+        }
+        public static int Factorial(int a)
+        {
+            if (a <= 1)
+            {
+                return a;
+            }
+            return a * Factorial(a - 1);
+        }
+        public static int[] GenerateFibonacci(int n)
+        {
+            var fiboList = new int[n];
+            int one = 0;
+            int two = 1;
+            int fibo = 0;
+            for (int i = 0; i < n; i++)
+            {
+                fiboList[i] = fibo;
+                one = two;
+                two = fibo;
+                fibo = one + two;
+            }
+            return fiboList;
+        }
+        public static bool IsPalindrome(string str)
+        {
+            var charsToLower = string.Concat(str.Where(x => char.IsLetter(x))).ToLower();
+            return charsToLower == string.Concat(charsToLower.Reverse());
+        }
+        public static bool AreAnagrams(string str1, string str2)
+        {
+            return string.Concat(str1.OrderBy(x => x)) == string.Concat(str2.OrderBy(x => x));
+        }
+        public static bool IsPrimeLoop(int num)
+        {
+            int counter = 0;
+            for (int i = 1; i <= num; i++)
+            {
+                if (num % i == 0) counter++;
+            }
+            return counter == 2;
+        }
+        public static int SumOfPrimesInRange(int a, int b)
+        {
+            int sum = 0;
+            for (int i = a; i < b; i++)
+            {
+                if (IsPrime(i))
+                {
+                    sum += i;
+                }
+            }
+            return sum;
+        }
+        public static string ReverseString(string str)
+        {
+            // Your code here 
+            return string.Concat(str.Reverse());
+        }
+        public static (int vowels, int consonants) CountVowelsAndConsonants(string str)
+        {
+            return (str.Count(x => "aeiouAEIOU".Contains(x)), str.Count(x => !"aeiouAEIOU".Contains(x)));
+        }
+        public static string LongestWord(string sentence)
+        {
+            // Your code here
+            var sentences = sentence.Split(" ");
+            var maxWord = sentences.FirstOrDefault();
+            for (int i = 0; i < sentences.Length; i++)
+            {
+                if (maxWord.Length < sentences[i].Length)
+                {
+                    maxWord = sentences[i];
+                }
+            }
+            return maxWord;
+        }
+        public static string LongestWordLinq(string sentence)
+        {
+            return sentence.Split(" ").OrderByDescending(x => x.Length).ToList().FirstOrDefault();
+        }
+        public static string ToTitleCase(string input)
+        {
+            input = input.ToLower();
+            var sb = new StringBuilder();
+
+            for (int i = 0; i < input.Length; i++)
+            {
+                if (i == 0 || input[i - 1] == ' ')
+                {
+                    sb.Append(input[i].ToString().ToUpper());
+                }
+                else
+                {
+                    sb.Append(input[i]);
+                }
+            }
+
+            return sb.ToString();
+        }
     }
 }
 
