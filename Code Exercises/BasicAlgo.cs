@@ -60,5 +60,18 @@ namespace Code_Exercises
             st.Append(text[0]);
             return st.ToString();
         }
+        //Write a C# Sharp program to create a string which is 4 copies of the 2 front characters of a given string. If the given string length is less than 2 return the original string.
+        public static string Get2CharsOfString(string text)
+        {
+            if (text.Length < 2) return text;
+
+            string front2Chars = text.Substring(0, 2);
+            return new StringBuilder().Insert(0, front2Chars, 3).ToString();
+        }
+        /*The cockroach is one of the fastest insects. Write a function which takes its speed in km per hour and returns it in cm per second, rounded down to the integer (= floored).*/
+        public static int CockroachSpeed(double x)
+        {
+            return (int)Math.Floor((x * 1000) / 36);
+        }
     }
 }
