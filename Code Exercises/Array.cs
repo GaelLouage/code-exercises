@@ -94,5 +94,10 @@ namespace Code_Exercises
             }
             return (min: array.Min(), max: array.Max());
         }
+        //Write a program in C# Sharp to separate odd and even integers into separate arrays.
+        public static (int[] arrayEven, int[] arrayOdd) GetEvenAndOddInts(int[] array)
+        {
+            return (array.Where(x => x % 2 == 0).ToArray(), array.Where(x => x % 2 != 0).ToArray());
+        }
     }
 }
