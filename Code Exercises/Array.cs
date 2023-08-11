@@ -25,7 +25,6 @@ namespace Code_Exercises
             }
             return duplicates.Count(x => x.Value > 1);
         }
-
         public static int CountDuplicatesLinq(int[] array) =>
          array.GroupBy(x => x).Count(z => z.Count() > 1);
         public static IEnumerable<T> GetAllUniqueValues<T>(List<T> values) =>

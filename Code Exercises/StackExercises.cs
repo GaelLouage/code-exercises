@@ -49,5 +49,30 @@ namespace Code_Exercises
         }
         public static int FindMinimumInStackLinq(Stack<int> myStack) =>
         myStack.OrderBy(x => x).FirstOrDefault();
+        //Write a C# program to count all the elements in a given stack.
+        public static Stack<T> RemoveElementFromGivenPosition<T>(Stack<T> st, dynamic val)
+        {
+            var stC = new Stack<T>();
+            while (st.Count() > 0)
+            {
+                var c = st.Pop();
+                if (c != val)
+                {
+                    stC.Push(c);
+                }
+            }
+            return stC;
+
+        }
+        //Write a C# program to remove all the elements from a given stack.
+        public static void RemoveElementsFromStack<T>(Stack<T> st)
+        {
+            st.Clear();
+        }
+        //Write a C# program to count all the elements in a given stack.
+        public static int CountElementsInStack<T>(Stack<T> st)
+        {
+            return st.Count();
+        }
     }
 }

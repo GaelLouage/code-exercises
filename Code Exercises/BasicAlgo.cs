@@ -19,12 +19,9 @@ namespace Code_Exercises
         12   */
         public static int ComputeSumWithCondition(int one, int two) =>
                  one == two ? (one + two) * 3 : one + two;
-
         /*Write a C# Sharp program to get the absolute difference between n and 51. If n is broader than 51 return triple the absolute difference.*/
-
         public static int GetAbsoluteDifference(int n) =>
             n > 51 ? (n - 51) * 3 : 51 - n;
-
         /*Write a C# Sharp program to check two given integers, and return true if one of them is 30 or if their sum is 30.
 
         Sample Input:
@@ -34,7 +31,6 @@ namespace Code_Exercises
         20, 25*/
         public static bool Is30(int one, int two)
                   => one + two == 30 || one == 30 || two == 30;
-
         /* Write a C# Sharp program to exchange the first and last characters in a given string and return the new string.
 
         Sample Input:

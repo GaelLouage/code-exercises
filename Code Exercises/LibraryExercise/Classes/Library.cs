@@ -23,7 +23,6 @@ namespace Code_Exercises.LibraryExercises.Classes
                 }
             }
         }
-
         public void ReturnBook(Member member, Book book)
         {
             var bookToReturn = member.Books.FirstOrDefault(x => x.Id == book.Id);
