@@ -894,6 +894,14 @@ namespace Code_Exercises
             // Your Code
             return s.Substring(1, s.Length - 2);
         }
+
+        public static string Meeting(string s)
+        {
+            var persons = s.Split(";").Select(x => new Person() { FirstName = x.Split(":")[0].ToUpper(), LastName = x.Split(":")[1].ToUpper() })
+              .OrderBy(x => x.LastName)
+              .ThenBy(x => x.FirstName);
+            return string.Concat(persons);
+        }
     }
 }
 
