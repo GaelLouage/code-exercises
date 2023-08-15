@@ -74,5 +74,16 @@ namespace Code_Exercises
         {
             return st.Count();
         }
+        //Write a C# program to count specified element in a given stack.
+        public static int CountSpecifiedElementsInStack(Stack<int> st, int element)
+        {
+            int count = 0;
+            foreach (var item in st)
+            {
+                if (item == element) count++;
+            }
+            return count;
+        }
+
     }
 }
