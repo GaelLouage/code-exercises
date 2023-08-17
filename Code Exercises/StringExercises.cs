@@ -58,5 +58,30 @@ namespace Code_Exercises
             sb.Append($"The total number of consonant in the string is: {text.Count(x => char.IsLetter(x) && !"aeiouAEIOU".Contains(x))}");
             return sb;
         }
+        //Write a C# Sharp program to find the maximum number of characters in a string.
+        public static int FindMaxCharLinq(string text)
+        {
+            return !string.IsNullOrEmpty(text) ? text.GroupBy(x => x).Max(x => x.Count()) : 0;
+        }
+        //Write a C# Sharp program to find the maximum number of characters in a string.
+        public static int FindMaxChar(string text)
+        {
+            int max = 0;
+            var charDictionary = new Dictionary<char, int>();
+            foreach (var ch in text)
+            {
+                if (charDictionary.ContainsKey(ch))
+                {
+                    charDictionary[ch]++;
+                    var tempMax = charDictionary[ch];
+                    if (tempMax > max) max = tempMax;
+                }
+                else
+                {
+                    charDictionary.Add(ch, 1);
+                }
+            }
+            return max;
+        }
     }
 }

@@ -903,6 +903,27 @@ namespace Code_Exercises
               .ThenBy(x => x.FirstName);
             return string.Concat(persons);
         }
+        public static int FindEvenIndex(int[] arr)
+        {
+            int totalSum = 0;
+            int leftSum = 0;
+
+            foreach (int num in arr)
+            {
+                totalSum += num;
+            }
+            for (int i = 0; i < arr.Length; i++)
+            {
+                totalSum -= arr[i];
+                if (leftSum == totalSum)
+                {
+                    return i;
+                }
+                leftSum += arr[i];
+            }
+
+            return -1;
+        }
     }
 }
 
