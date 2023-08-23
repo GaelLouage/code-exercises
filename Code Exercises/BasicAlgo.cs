@@ -69,5 +69,23 @@ namespace Code_Exercises
         {
             return (int)Math.Floor((x * 1000) / 36);
         }
+        /*Write a C# Sharp program to create a string with the last char added at the front and back of a given string of length 1 or more.
+        
+        Sample Input:
+        "Red"
+        "Green"
+        "1"
+        Expected Output:
+        dRedd
+        nGreenn
+        111*/
+        public static string AddLastCharXtimes(string text, int times)
+        {
+            if (string.IsNullOrEmpty(text)) return "";
+            if (times == 0) return text;
+            var lastChar = text[text.Length - 1];
+            var repeatedLastChar = new String(lastChar, times);
+            return repeatedLastChar + text + repeatedLastChar;
+        }
     }
 }
