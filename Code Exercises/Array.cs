@@ -98,5 +98,10 @@ namespace Code_Exercises
         {
             return (array.Where(x => x % 2 == 0).ToArray(), array.Where(x => x % 2 != 0).ToArray());
         }
+        // Write a C# Sharp program to sort elements of an array in ascending order.
+        public static IEnumerable<int> OrderInDescendingOrder(int[] array)
+        {
+            return array.OrderBy(x => x);
+        }
     }
 }
