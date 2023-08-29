@@ -84,6 +84,16 @@ namespace Code_Exercises
             }
             return count;
         }
-
+        /*Write a C# program to implement a stack that checks if a given element is present or not in the stack.*/
+        public static bool StackContainsElement<T>(Stack<T> elements, T obj)
+        {
+            foreach (var element in elements.ToList())
+            {
+                if (EqualityComparer<T>.Default.Equals(element, obj)) return true;
+            }
+            return false;
+        }
+        public static bool StackContainsElementLinq<T>(Stack<T> elements, T obj) =>
+                 elements.Any(x => EqualityComparer<T>.Default.Equals(x, obj));
     }
 }
