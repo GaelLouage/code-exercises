@@ -1092,6 +1092,31 @@ namespace Code_Exercises
             3 => $"{name[0]}, {name[1]} and {name[2]} like this",
             _ => $"{name[0]}, {name[1]} and {name.Length - 2} others like this"
         };
+
+        //Complete the solution so that it splits the string into pairs of two characters.
+        //If the string contains an odd number of characters then it should replace the missing second character of the final pair with an underscore ('_').
+        public  string[] Solution(string str)
+        {
+            if (string.IsNullOrEmpty(str))
+            {
+                return new string[0]; 
+            }
+
+            var arr = new List<string>();
+            for (int i = 0; i < str.Length; i++)
+            {
+                if (str.Length % 2 != 0 && i == str.Length - 1)
+                {
+                    arr.Add($"{str[i]}_");
+                }
+                else
+                {
+                    arr.Add($"{str[i]}{str[i + 1]}");
+                    i++;
+                }
+            }
+            return arr.ToArray();
+        }
     }
 }
 

@@ -87,5 +87,26 @@ namespace Code_Exercises
             var repeatedLastChar = new String(lastChar, times);
             return repeatedLastChar + text + repeatedLastChar;
         }
+
+        /*Write a C# Sharp program to create a string with the last char added at the front and back of a given string of length 1 or more.
+
+        Sample Input:
+        "Red"
+        "Green"
+        "1"
+        Expected Output:
+        dRedd
+        nGreenn
+        111*/
+        public static string AppendLastCharToFrontAndBack(string str)
+        {
+            if (string.IsNullOrEmpty(str))
+            {
+                return "";
+            }
+            var stringToLower = str.ToLower();
+            var lastChar = stringToLower[stringToLower.Length - 1];
+            return $"{lastChar}{stringToLower}{lastChar}";
+        }
     }
 }
