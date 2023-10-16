@@ -1117,6 +1117,36 @@ namespace Code_Exercises
             }
             return arr.ToArray();
         }
+
+        public static int[] TwoSum(int[] numbers, int target)
+        {
+            // O(n^2)
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                for (int j = i + 1; j < numbers.Length; j++)
+                {
+                    if (numbers[i] + numbers[j] == target)
+                    {
+                        return new int[] { i, j };
+                    }
+                }
+            }
+            return new int[0];
+        }
+
+        public static int[] ArrayDiff2(int[] a, int[] b)
+        {
+            var result = new List<int>();
+            result.AddRange(a);
+            foreach (var num in b)
+            {
+                if (result.Contains(num))
+                {
+                    result.RemoveAll(x => x == num);
+                }
+            }
+            return result.ToArray();
+        }
     }
 }
 
