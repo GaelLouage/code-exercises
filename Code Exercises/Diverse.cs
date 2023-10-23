@@ -1095,11 +1095,11 @@ namespace Code_Exercises
 
         //Complete the solution so that it splits the string into pairs of two characters.
         //If the string contains an odd number of characters then it should replace the missing second character of the final pair with an underscore ('_').
-        public  string[] Solution(string str)
+        public string[] Solution(string str)
         {
             if (string.IsNullOrEmpty(str))
             {
-                return new string[0]; 
+                return new string[0];
             }
 
             var arr = new List<string>();
@@ -1147,6 +1147,32 @@ namespace Code_Exercises
             }
             return result.ToArray();
         }
+        /*Complete the method/function so that it converts dash/underscore delimited words into camel casing. The first word within the output should be capitalized only if the original word was capitalized (known as Upper Camel Case, also often referred to as Pascal case). The next words should be always capitalized.
+
+        Examples
+        "the-stealth-warrior" gets converted to "theStealthWarrior"
+        
+        "The_Stealth_Warrior" gets converted to "TheStealthWarrior"
+        
+        "The_Stealth-Warrior" gets converted to "TheStealthWarrior"*/
+        public static string ToCamelCase(string str)
+        {
+            var result = "";
+            for (int i = 0; i < str.Length; i++)
+            {
+                result += str[i];
+                if (str[i] == '-' || str[i] == '_')
+                {
+                    result += str[i + 1].ToString().ToUpper();
+                    i++;
+                }
+            }
+            return result.Replace("-", "").Replace("_", "");
+
+        }
+        public static string ToCamelCaseLinq(string str) =>
+   string.IsNullOrEmpty(str) ? str :
+    string.Concat(str.Split('-', '_').Select((s, i) => i == 0 ? s : $"{s[0].ToString().ToUpper()}{s.Substring(1)}"));
     }
 }
 
