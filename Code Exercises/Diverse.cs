@@ -1171,8 +1171,31 @@ namespace Code_Exercises
 
         }
         public static string ToCamelCaseLinq(string str) =>
-   string.IsNullOrEmpty(str) ? str :
-    string.Concat(str.Split('-', '_').Select((s, i) => i == 0 ? s : $"{s[0].ToString().ToUpper()}{s.Substring(1)}"));
+                      string.IsNullOrEmpty(str) ? str :
+                      string.Concat(str.Split('-', '_').Select((s, i) => i == 0 ? s : $"{s[0].ToString().ToUpper()}{s.Substring(1)}"));
+
+        /*The main idea is to count all the occurring characters in a string. If you have a string like aba, then the result should be {'a': 2, 'b': 1}.
+
+        What if the string is empty? Then the result should be empty object literal, {}.*/
+        public static Dictionary<char, int> CountChars(string str)
+        {
+            var result = new Dictionary<char, int>();
+            foreach (var c in str)
+            {
+                if (result.ContainsKey(c))
+                {
+                    result[c]++;
+                }
+                else
+                {
+                    result.Add(c, 1);
+                }
+
+            }
+            return result;
+        }
+        public static Dictionary<char, int> CountCharsLinq(string str) =>
+            str.GroupBy(c => c).ToDictionary(x => x.Key, elem => elem.Count());
     }
 }
 
