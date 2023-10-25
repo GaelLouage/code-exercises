@@ -1196,6 +1196,29 @@ namespace Code_Exercises
         }
         public static Dictionary<char, int> CountCharsLinq(string str) =>
             str.GroupBy(c => c).ToDictionary(x => x.Key, elem => elem.Count());
+        /*Your task, is to create N×N multiplication table, of size provided in parameter.
+        
+        For example, when given size is 3:
+        
+        1 2 3
+        2 4 6
+        3 6 9
+        For the given example, the return value should be:
+        
+        [[1,2,3],[2,4,6],[3,6,9]]*/
+        public static int[,] MultiplicationTableV2(int size)
+        {
+            if (size <= 0) return new int[size, size];
+            var result = new int[size, size];
+            for (int j = 0; j < result.GetLength(0); j++)
+            {
+                for (int i = 0; i < result.GetLength(1); i++)
+                {
+                    result[i, j] = (j + 1) * (i + 1);
+                }
+            }
+            return result;
+        }
     }
 }
 
