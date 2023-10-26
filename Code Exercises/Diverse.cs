@@ -1219,6 +1219,33 @@ namespace Code_Exercises
             }
             return result;
         }
+        /*Complete the solution so that the function will break up camel casing, using a space between words.
+
+        Example
+        "camelCasing"  =>  "camel Casing"
+        "identifier"   =>  "identifier"
+        ""             =>  ""*/
+        public static string BreakCamelCase(string str)
+        {
+            // complete the function
+            var result = "";
+            foreach (var c in str)
+            {
+                if (char.IsUpper(c))
+                {
+
+                    result += " " + c;
+                }
+                else
+                {
+                    result += c;
+
+                }
+            }
+            return result;
+        }
+        public static string BreakCamelCaseLinq(string str) =>
+   string.Concat(str.Select(x => char.IsUpper(x) ? " " + x : x.ToString()));
     }
 }
 
