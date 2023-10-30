@@ -1246,6 +1246,11 @@ namespace Code_Exercises
         }
         public static string BreakCamelCaseLinq(string str) =>
    string.Concat(str.Select(x => char.IsUpper(x) ? " " + x : x.ToString()));
+
+        public static string ReverseStringV2(string str)
+        {
+            return string.Concat(str.Reverse());
+        }
     }
 }
 
