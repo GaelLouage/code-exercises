@@ -1251,6 +1251,45 @@ namespace Code_Exercises
         {
             return string.Concat(str.Reverse());
         }
+
+        /*In this little assignment you are given a string of space separated numbers, and have to return the highest and lowest number.
+
+                Examples
+                Kata.HighAndLow("1 2 3 4 5");  // return "5 1"
+                Kata.HighAndLow("1 2 -3 4 5"); // return "5 -3"
+                Kata.HighAndLow("1 9 3 4 -5"); // return "9 -5"
+                Notes
+                All numbers are valid Int32, no need to validate them.
+                There will always be at least one number in the input string.
+                Output string must be two numbers separated by a single space, and highest number is first.
+                */
+        public static string HighAndLowV2(string numbers)
+        {
+            if (string.IsNullOrEmpty(numbers)) return "";
+            var min = int.MaxValue;
+            var max = int.MinValue;
+            var splittedSpace = numbers.Split(" ");
+            foreach (var num in splittedSpace)
+            {
+                if (int.TryParse(num, out int number))
+                {
+                    if (max < number)
+                    {
+                        max = number;
+                    }
+                    if (min > number)
+                    {
+                        min = number;
+                    }
+                }
+            }
+            return $"{max} {min}";
+        }
+        public static string HighAndLowLinqV2(string numbers)
+        {
+            var numbersSplitted = numbers.Split(" ").Select(x => int.Parse(x));
+            return $"{numbersSplitted.Max()} {numbersSplitted.Min()}";
+        }
     }
 }
 
