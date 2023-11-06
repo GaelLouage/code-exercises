@@ -1290,6 +1290,25 @@ namespace Code_Exercises
             var numbersSplitted = numbers.Split(" ").Select(x => int.Parse(x));
             return $"{numbersSplitted.Max()} {numbersSplitted.Min()}";
         }
+        public static bool IsIsogramV2(string str)
+        {
+            // Code on you crazy diamond!
+            str = str.ToLower();
+            var dictionary = new Dictionary<char, int>();
+            foreach (var c in str)
+            {
+                if (dictionary.ContainsKey(c))
+                {
+                    dictionary[c]++;
+                }
+                else
+                {
+                    dictionary.Add(c, 1);
+                }
+            }
+            return dictionary.All(x => x.Value == 1);
+
+        }
     }
 }
 
